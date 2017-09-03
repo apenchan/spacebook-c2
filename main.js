@@ -100,6 +100,12 @@ $('body').on('click', ".post-comment", function(){
 });
 
 
+//learning branches purposes
+function commentAlert(){
+	console.log("I am a comment");
+}
+
+
 
 
 
