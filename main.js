@@ -97,6 +97,16 @@ var SpacebookApp = function() {
     $clickedPost.find('.comments-container').toggleClass('show');
   }
 
+  var removeComment = function(cindex, pindex, commentElem){
+    //remove comment from array. needs to be first
+    var $currentPost = $('.post').eq(pindex).find('.actual-comments');
+    var $currentComment = $('.actual-comments').eq(cindex).find('.comment');
+
+
+    //remove comment element from screen `
+
+  }
+
   return {
     createPost: createPost,
     renderPosts: renderPosts,
@@ -141,3 +151,16 @@ $('.posts').on('click', '.add-comment', function() {
 $('.posts').on('click', '.show-comments', function() {
   app.toggleComments(this);
 });
+
+$('.posts').on('click', '.remove-comment', function(){
+  //get the HTML index of post 
+  var postIndex = $(this).closest('.post').index();
+
+  //get the HTML index of this comment
+  var commentIndex = $(this).closest('.comment').index()
+
+// element to remove(remove from view)
+  var commentToRemove = $(this).closest('.comment')
+  app.removeComment(commentIndex, postIndex, commentToRemove);
+})
+
